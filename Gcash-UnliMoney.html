@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For my Aria</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #fff7f8, #fcecef);
+            color: #4a3a3d;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+            position: fixed;
+            bottom: -30px;
+
+            font-size: 18px;
+            opacity: 0.25;
+
+            animation: float 8s linear infinite;
+
+            pointer-events: none;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+            width: min(90%, 600px);
+
+            background: rgba(255, 255, 255, 0.85);
+
+            padding: 50px 40px;
+
+            border-radius: 24px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(100, 60, 70, 0.12);
+
+            backdrop-filter: blur(10px);
+
+            animation: appear 1.2s ease;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           SMALL TITLE
+        ========================= */
+
+        .small-text {
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #a9828b;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           MAIN TITLE
+        ========================= */
+
+        h1 {
+
+            font-size: 42px;
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+
+            color: #513e43;
+        }
+
+
+        /* =========================
+           DIVIDER
+        ========================= */
+
+        .divider {
+
+            width: 50px;
+
+            height: 2px;
+
+            background: #d9aeb7;
+
+            margin: 25px auto;
+        }
+
+
+        /* =========================
+           MAIN MESSAGE
+        ========================= */
+
+        .message {
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #69565b;
+
+            margin: 20px auto;
+
+            max-width: 470px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 12px 25px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d9aeb7;
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+
+            background: #c995a0;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           HIDDEN MESSAGE
+        ========================= */
+
+        #hiddenMessage {
+
+            display: none;
+
+            margin-top: 25px;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #69565b;
+
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           SIGNATURE
+        ========================= */
+
+        .signature {
+
+            margin-top: 30px;
+
+            font-size: 14px;
+
+            color: #92757c;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .card {
+
+                padding: 40px 25px;
+            }
+
+            h1 {
+
+                font-size: 32px;
+            }
+
+            .message {
+
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         MUSIC
+    ================================== -->
+
+    <audio id="music" loop>
+
+        <source src="Ikaw-at-Ako.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+
+    </audio>
+
+
+
+    <!-- =================================
+         FLOATING HEARTS
+    ================================== -->
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♡</div>
+
+
+
+    <!-- =================================
+         MAIN CARD
+    ================================== -->
+
+    <div class="card">
+
+
+        <!-- SMALL TEXT -->
+
+        <div class="small-text">
+
+            Just a little something
+
+        </div>
+
+
+
+        <!-- =================================
+             CHANGE YOUR TITLE HERE
+        ================================== -->
+
+        <h1>
+
+            For You.
+
+        </h1>
+
+
+
+        <!-- DIVIDER -->
+
+        <div class="divider"></div>
+
+
+
+        <!-- =================================
+             CHANGE YOUR MAIN MESSAGE HERE
+        ================================== -->
+
+        <p class="message">
+
+            I love you more than anything mahal, I'm so grateful to have you in my life
+            56 months together and still counting hehee di na matatapos yan
+            I wish for us to be forever, and I'll make sure to make that wish come true.
+
+        </p>
+
+
+
+        <!-- =================================
+             BUTTON
+             MUSIC STARTS HERE
+        ================================== -->
+
+        <button class="button" onclick="playMusic(); showMessage();">
+
+            Ooooppss oooopppss oppppsss Eskale??
+
+        </button>
+
+
+
+        <!-- =================================
+             HIDDEN MESSAGE
+             CHANGE THIS TO YOUR OWN MESSAGE
+        ================================== -->
+
+        <p id="hiddenMessage">
+
+           You gave me everything that i have mahal, you make me feel that I'm the most luckiest person in the whole world. wala si pepito manaloto sa swerte ko kasi nasakin ka.
+           
+
+            <br>
+            <br>
+
+            — Buseng walang kanen?? ♡
+
+        </p>
+
+
+
+        <!-- =================================
+             SIGNATURE
+        ================================== -->
+
+        <div class="signature">
+
+            If you read this sabihin mo papasa ako sa DE at FEC.
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        /* =========================
+           SHOW HIDDEN MESSAGE
+        ========================= */
+
+        function showMessage() {
+
+            const message =
+                document.getElementById("hiddenMessage");
+
+
+            if (message.style.display === "block") {
+
+                message.style.display = "none";
+
+            }
+
+            else {
+
+                message.style.display = "block";
+
+            }
+
+        }
+
+
+
+        /* =========================
+           PLAY MUSIC
+        ========================= */
+
+        function playMusic() {
+
+            const music =
+                document.getElementById("music");
+
+
+            music.play().catch(function(error) {
+
+                console.log(
+                    "Music could not start:",
+                    error
+                );
+
+            });
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>
